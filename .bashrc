@@ -9,7 +9,10 @@ alias safari="open -a Safari"
 alias sublime="open -a Sublime\ Text\ 2"
 alias evernote="open -a Evernote"
 alias r="open -a R"
-alias rm="rmtrash"
+
+alias ls="ls -aG"
+alias rm="rm -i"
+alias wc="wc -l"
 # export PATH=$PATH:/usr/local/mysql/bin
 #alias mysql="mysql -u root -p"
 
