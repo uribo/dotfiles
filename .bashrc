@@ -16,7 +16,7 @@ alias wc="wc -l"
 # export PATH=$PATH:/usr/local/mysql/bin
 #alias mysql="mysql -u root -p"
 
-#PATH=$HOME/.cabal/bin:$PATH
+PATH=$HOME/.cabal/bin:$PATH
 
 export DISPLAY=":0.0"
 

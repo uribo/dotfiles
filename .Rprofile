@@ -34,13 +34,18 @@ grDevices::X11.options(fonts=c("-ipagothic-gothic-%s-%s-normal--%d-*-*-*-*-*-*-*
      cat(R.version.string, "\n")
      cat(date(), "\n")
      cat(getwd(), "\n\n")
+## fortunes
+   tmp <- suppressWarnings(require("fortunes", quietly=TRUE))
+   if(tmp) {
+   	   print(fortunes::fortune())
+   }
 ## Load packages
-     library(vegan)
-     library(lattice)
-     library(MASS)
-     library(glmmML)
-     library(ggplot2)
-     library(popbio)
+     require(vegan)
+     require(lattice)
+     require(MASS)
+     require(glmmML)
+     require(ggplot2)
+     require(popbio)
 }
 
 ## Don't show significsant stars
