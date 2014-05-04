@@ -1,5 +1,5 @@
 #########################################
-# Last update: 2013-11-13
+# Last update: 2014-05-04
 #########################################
 if (.Platform$pkgType == "mac.binary.leopard"){
         options(device="quartz")
@@ -30,6 +30,9 @@ setHook("plot.new", get("familyset_hook", pos="MacJapanEnv"))
 
 grDevices::X11.options(fonts=c("-ipagothic-gothic-%s-%s-normal--%d-*-*-*-*-*-*-*","-adobe-symbol-medium-r-*-*-%d-*-*-*-*-*-*-*"))
 
+## message converted Japanes to English for Mac OS X
+  Sys.setenv("LANGUAGE"="En")
+
 .First <- function() {
      cat(R.version.string, "\n")
      cat(date(), "\n")
@@ -40,12 +43,14 @@ grDevices::X11.options(fonts=c("-ipagothic-gothic-%s-%s-normal--%d-*-*-*-*-*-*-*
    	   print(fortunes::fortune())
    }
 ## Load packages
-     require(vegan)
-     require(lattice)
-     require(MASS)
-     require(glmmML)
-     require(ggplot2)
-     require(popbio)
+  suppressMessages(library(knitr))
+  suppressMessages(library(vegan))
+  suppressMessages(library(lattice))
+  suppressMessages(library(MASS))
+  suppressMessages(library(glmmML))
+  suppressMessages(library(ggplot2))
+  suppressMessages(library(popbio))
+  suppressMessages(library(devtools)) 
 }
 
 ## Don't show significsant stars
