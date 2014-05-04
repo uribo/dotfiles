@@ -21,3 +21,5 @@ PATH=$HOME/.cabal/bin:$PATH
 export DISPLAY=":0.0"
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export GISTY_DIR="/Users/uri/Dropbox/git/gists"
