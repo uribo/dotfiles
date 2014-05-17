@@ -1,5 +1,12 @@
+
 .DS_Store
+
 Thumb.db
-.log
-.aux
-.dvi
+
+*.log
+
+*.aux
+
+*.dvi
+
+*.pdf

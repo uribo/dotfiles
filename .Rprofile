@@ -1,48 +1,84 @@
 #########################################
-# Last update: 2014-05-04
+# Last update: 2014-05-17
 #########################################
-if (.Platform$pkgType == "mac.binary.leopard"){
-        options(device="quartz")
+if (capabilities("aqua")) {
+    options(device="quartz")
 }
-
-setHook(packageEvent("grDevices", "onLoad"),function(...) grDevices::pdf.options(family="Japan1"))
-setHook(packageEvent("grDevices", "onLoad"),function(...) grDevices::ps.options(family="Japan1"))
 setHook(packageEvent("grDevices", "onLoad"),
-        function(...){
-            grDevices::quartzFonts(serif=grDevices::quartzFont(
+    function(...) {
+        if (.Platform$OS.type == "windows")
+            grDevices::windowsFonts(sans ="MS Gothic",
+                                    serif="MS Mincho",
+                                    mono ="FixedFont")
+        if (capabilities("aqua"))
+            grDevices::quartzFonts(
+              sans=grDevices::quartzFont(
+                c("Hiragino Kaku Gothic Pro W3",
+                  "Hiragino Kaku Gothic Pro W6",
+                  "Hiragino Kaku Gothic Pro W3",
+                  "Hiragino Kaku Gothic Pro W6")),
+              serif=grDevices::quartzFont(
                 c("Hiragino Mincho Pro W3",
                   "Hiragino Mincho Pro W6",
                   "Hiragino Mincho Pro W3",
                   "Hiragino Mincho Pro W6")))
-            grDevices::quartzFonts(sans=grDevices::quartzFont(
-                c("Hiragino Kaku Gothic Pro W3",
-                  "Hiragino Kaku Gothic Pro W6",
-                  "Hiragino Kaku Gothic Pro W3",
-                  "Hiragino Kaku Gothic Pro W6")))
-        }
+        # if (capabilities("X11"))
+        #     grDevices::X11.options(
+        #         fonts=c("-kochi-gothic-%s-%s-*-*-%d-*-*-*-*-*-*-*",
+        #                 "-adobe-symbol-medium-r-*-*-%d-*-*-*-*-*-*-*"))
+        grDevices::pdf.options(family="Japan1GothicBBB")
+        grDevices::ps.options(family="Japan1GothicBBB")
+    }
 )
-attach(NULL, name = "MacJapanEnv")
-
+attach(NULL, name = "JapanEnv")
 assign("familyset_hook",
-       function() { if(names(dev.cur())=="quartz") par(family="serif")},
-       pos="MacJapanEnv")
-setHook("plot.new", get("familyset_hook", pos="MacJapanEnv"))
+       function() {
+            winfontdevs=c("windows","win.metafile",
+                          "png","bmp","jpeg","tiff","RStudioGD")
+            macfontdevs=c("quartz","quartz_off_screen","RStudioGD")
+            devname=strsplit(names(dev.cur()),":")[[1L]][1]
+            if ((.Platform$OS.type == "windows") &&
+                (devname %in% winfontdevs))
+                    par(family="sans")
+            if (capabilities("aqua") &&
+                devname %in% macfontdevs)
+                    par(family="sans")
+       },
+       pos="JapanEnv")
+setHook("plot.new", get("familyset_hook", pos="JapanEnv"))
+setHook("persp", get("familyset_hook", pos="JapanEnv"))
 
-grDevices::X11.options(fonts=c("-ipagothic-gothic-%s-%s-normal--%d-*-*-*-*-*-*-*","-adobe-symbol-medium-r-*-*-%d-*-*-*-*-*-*-*"))
+# latticeの日本語表示
+# http://d.hatena.ne.jp/kiwamu_i/20100808/
+setHook(packageEvent("lattice", "attach"),
+        function(...) {
+            lattice.options(default.args = list(as.table=TRUE))
+            my.pdf.theme <- standard.theme("pdf", color=TRUE)
+            my.pdf.theme$grid.pars <- list(fontfamily = "sans")
+            my.pdf.theme$axis.text$fontfamily <- "sans"
+            my.pdf.theme$axis.text$cex <- 1
+            my.quartz.theme <- standard.theme("quartz", color=FALSE)
+            my.quartz.theme$grid.pars <- list(fontfamily = "sans")
+            my.quartz.theme$axis.text$fontfamily <- "sans"
+            my.quartz.theme$axis.text$cex <- 1
+            lattice.options(default.theme =
+                function() {
+                    switch(EXPR = .Device,
+                           pdf = my.pdf.theme,
+                           my.quartz.theme)
+                })
+            })
 
-## message converted Japanes to English for Mac OS X
-  Sys.setenv("LANGUAGE"="En")
+#########################################
+## Set CRAN mirror
+options(repos="http://cran.ism.ac.jp")  
+## Don't show significsant stars
+  options(show.signif.stars=F)
 
 .First <- function() {
      cat(R.version.string, "\n")
      cat(date(), "\n")
      cat(getwd(), "\n\n")
-## fortunes
-   tmp <- suppressWarnings(require("fortunes", quietly=TRUE))
-   if(tmp) {
-   	   print(fortunes::fortune())
-   }
-## Load packages
   suppressMessages(library(knitr))
   suppressMessages(library(vegan))
   suppressMessages(library(lattice))
@@ -53,5 +89,5 @@ grDevices::X11.options(fonts=c("-ipagothic-gothic-%s-%s-normal--%d-*-*-*-*-*-*-*
   suppressMessages(library(devtools)) 
 }
 
-## Don't show significsant stars
-  options(show.signif.stars=F)
+## message converted Japanes to English for Mac OS X
+  Sys.setenv("LANGUAGE"="En")
