@@ -1,7 +1,16 @@
-
+# Folder view configuration files
 .DS_Store
+Desktop.ini
 
-Thumb.db
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+.netrc
 
 *.log
 
@@ -10,3 +19,4 @@ Thumb.db
 *.dvi
 
 *.pdf
+
