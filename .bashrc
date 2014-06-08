@@ -23,3 +23,5 @@ export DISPLAY=":0.0"
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export GISTY_DIR="/Users/uri/Dropbox/git/gists"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
