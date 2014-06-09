@@ -86,8 +86,11 @@ options(repos="http://cran.ism.ac.jp")
   suppressMessages(library(glmmML))
   suppressMessages(library(ggplot2))
   suppressMessages(library(popbio))
-  suppressMessages(library(devtools)) 
+  suppressMessages(library(devtools))
+  suppressMessages(library(xtable))
 }
 
 ## message converted Japanes to English for Mac OS X
   Sys.setenv("LANGUAGE"="En")
+## 
+  Sys.setenv(RSTUDIO_PDFLATEX="/usr/texbin/lualatex") # windowsなら変更
