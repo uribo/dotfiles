@@ -87,6 +87,7 @@ options(repos="http://cran.ism.ac.jp")
   suppressMessages(library(ggplot2))
   suppressMessages(library(popbio))
   suppressMessages(library(devtools))
+  suppressMessages(library(rmarkdown))
   suppressMessages(library(xtable))
 }
 
