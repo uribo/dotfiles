@@ -71,7 +71,7 @@ setHook(packageEvent("lattice", "attach"),
 
 #########################################
 ## Set CRAN mirror
-options(repos="http://cran.ism.ac.jp")  
+options(repos=list(CRAN="http://cran.ism.ac.jp"))
 ## Don't show significsant stars
   options(show.signif.stars=F)
 
