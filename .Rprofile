@@ -1,5 +1,5 @@
 #########################################
-# Last update: 2014-07-01
+# Last update: 2014-07-07
 #########################################
 if (capabilities("aqua")) {
     options(device="quartz")
@@ -89,6 +89,8 @@ options(repos=list(CRAN="http://cran.ism.ac.jp"))
   suppressMessages(library(devtools))
   suppressMessages(library(rmarkdown))
   suppressMessages(library(xtable))
+  suppressMessages(library(fortunes))
+    print(fortune())
 }
 
 ## message converted Japanes to English for Mac OS X
