@@ -9,10 +9,12 @@ alias r="open -a R"
 alias ls="ls -aG"
 alias rm="rm -i"
 alias wc="wc -l"
+alias WinBUGS="wine /Users/uri/.wine/drive_c/Program\ Files/WinBUGS14/WinBUGS14.exe"
 
 PATH=$HOME/.cabal/bin:$PATH
 
 export DISPLAY=":0.0"
+ export LC_ALL=ja_JP.UTF-8
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
