@@ -71,7 +71,8 @@ setHook(packageEvent("lattice", "attach"),
 
 #########################################
 ## Set CRAN mirror
-options(repos=list(CRAN="http://cran.ism.ac.jp"))
+options(
+  repos=list(CRAN="http://cran.ism.ac.jp"))
 ## Don't show significsant stars
   options(show.signif.stars=F)
 
@@ -81,9 +82,11 @@ options(repos=list(CRAN="http://cran.ism.ac.jp"))
      cat(getwd(), "\n\n")
   suppressMessages(library(knitr))
   suppressMessages(library(stringr))
-  suppressMessages(library(vegan))
+#  suppressMessages(library(vegan))
   suppressMessages(library(lattice))
   suppressMessages(library(MASS))
+  suppressMessages(library(magrittr))
+  suppressMessages(library(dplyr))
   suppressMessages(library(glmmML))
   suppressMessages(library(ggplot2))
   suppressMessages(library(popbio))
