@@ -2,14 +2,14 @@
 # Last update: 2014-07-07
 #########################################
 if (capabilities("aqua")) {
-    options(device="quartz")
+    options(device = "quartz")
 }
 setHook(packageEvent("grDevices", "onLoad"),
     function(...) {
         if (.Platform$OS.type == "windows")
-            grDevices::windowsFonts(sans ="MS Gothic",
-                                    serif="MS Mincho",
-                                    mono ="FixedFont")
+            grDevices::windowsFonts(sans  = "MS Gothic",
+                                    serif = "MS Mincho",
+                                    mono  = "FixedFont")
         if (capabilities("aqua"))
             grDevices::quartzFonts(
               sans=grDevices::quartzFont(
@@ -26,55 +26,54 @@ setHook(packageEvent("grDevices", "onLoad"),
         #     grDevices::X11.options(
         #         fonts=c("-kochi-gothic-%s-%s-*-*-%d-*-*-*-*-*-*-*",
         #                 "-adobe-symbol-medium-r-*-*-%d-*-*-*-*-*-*-*"))
-        grDevices::pdf.options(family="Japan1GothicBBB")
-        grDevices::ps.options(family="Japan1GothicBBB")
+        grDevices::pdf.options(family = "Japan1GothicBBB")
+        grDevices::ps.options(family  = "Japan1GothicBBB")
     }
 )
 attach(NULL, name = "JapanEnv")
 assign("familyset_hook",
        function() {
-            winfontdevs=c("windows","win.metafile",
-                          "png","bmp","jpeg","tiff","RStudioGD")
-            macfontdevs=c("quartz","quartz_off_screen","RStudioGD")
-            devname=strsplit(names(dev.cur()),":")[[1L]][1]
+            winfontdevs=c("windows", "win.metafile", "png", 
+                          "bmp", "jpeg", "tiff", "RStudioGD")
+            macfontdevs=c("quartz", "quartz_off_screen", "RStudioGD")
+            devname=strsplit(names(dev.cur()), ":")[[1L]][1]
             if ((.Platform$OS.type == "windows") &&
                 (devname %in% winfontdevs))
-                    par(family="sans")
+                    par(family = "sans")
             if (capabilities("aqua") &&
                 devname %in% macfontdevs)
-                    par(family="sans")
+                    par(family = "sans")
        },
-       pos="JapanEnv")
-setHook("plot.new", get("familyset_hook", pos="JapanEnv"))
-setHook("persp", get("familyset_hook", pos="JapanEnv"))
+       pos = "JapanEnv")
+setHook("plot.new", get("familyset_hook", pos = "JapanEnv"))
+setHook("persp", get("familyset_hook", pos = "JapanEnv"))
 
 # latticeの日本語表示
 # http://d.hatena.ne.jp/kiwamu_i/20100808/
 setHook(packageEvent("lattice", "attach"),
         function(...) {
-            lattice.options(default.args = list(as.table=TRUE))
-            my.pdf.theme <- standard.theme("pdf", color=TRUE)
+            lattice.options(default.args = list(as.table = TRUE))
+            my.pdf.theme <- standard.theme("pdf", color = TRUE)
             my.pdf.theme$grid.pars <- list(fontfamily = "sans")
             my.pdf.theme$axis.text$fontfamily <- "sans"
             my.pdf.theme$axis.text$cex <- 1
-            my.quartz.theme <- standard.theme("quartz", color=FALSE)
+            my.quartz.theme <- standard.theme("quartz", color = FALSE)
             my.quartz.theme$grid.pars <- list(fontfamily = "sans")
             my.quartz.theme$axis.text$fontfamily <- "sans"
             my.quartz.theme$axis.text$cex <- 1
             lattice.options(default.theme =
                 function() {
                     switch(EXPR = .Device,
-                           pdf = my.pdf.theme,
+                           pdf  = my.pdf.theme,
                            my.quartz.theme)
                 })
             })
 
 #########################################
 ## Set CRAN mirror
-options(
-  repos=list(CRAN="http://cran.ism.ac.jp"))
+options(repos = list(CRAN="http://cran.ism.ac.jp"))
 ## Don't show significsant stars
-  options(show.signif.stars=F)
+  options(show.signif.stars = F)
 
 .First <- function() {
      cat(R.version.string, "\n")
@@ -98,6 +97,6 @@ options(
 }
 
 ## message converted Japanes to English for Mac OS X
-  Sys.setenv("LANGUAGE"="En")
+  Sys.setenv("LANGUAGE" = "En")
 ## 
-  Sys.setenv(RSTUDIO_PDFLATEX="/usr/texbin/lualatex") # windowsなら変更
+  Sys.setenv(RSTUDIO_PDFLATEX = "/usr/texbin/lualatex") # windowsなら変更
