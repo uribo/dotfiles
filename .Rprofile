@@ -1,5 +1,5 @@
 #########################################
-# Last update: 2014-07-07
+# Last update: 2015-01-22
 #########################################
 if (capabilities("aqua")) {
     options(device = "quartz")
@@ -12,12 +12,12 @@ setHook(packageEvent("grDevices", "onLoad"),
                                     mono  = "FixedFont")
         if (capabilities("aqua"))
             grDevices::quartzFonts(
-              sans=grDevices::quartzFont(
+              sans = grDevices::quartzFont(
                 c("Hiragino Kaku Gothic Pro W3",
                   "Hiragino Kaku Gothic Pro W6",
                   "Hiragino Kaku Gothic Pro W3",
                   "Hiragino Kaku Gothic Pro W6")),
-              serif=grDevices::quartzFont(
+              serif = grDevices::quartzFont(
                 c("Hiragino Mincho Pro W3",
                   "Hiragino Mincho Pro W6",
                   "Hiragino Mincho Pro W3",
@@ -70,33 +70,24 @@ setHook(packageEvent("lattice", "attach"),
             })
 
 #########################################
-## Set CRAN mirror
-options(repos = list(CRAN="http://cran.ism.ac.jp"))
-## Don't show significsant stars
-  options(show.signif.stars = F)
+# options
+options(repos = list(CRAN="http://cran.ism.ac.jp")) # Set CRAN mirror
+options(show.signif.stars = F) # Don't show significsant stars
 
 .First <- function() {
-     cat(R.version.string, "\n")
-     cat(date(), "\n")
-     cat(getwd(), "\n\n")
+  # load packages
   suppressMessages(library(knitr))
   suppressMessages(library(stringr))
-#  suppressMessages(library(vegan))
-  suppressMessages(library(lattice))
-  suppressMessages(library(MASS))
   suppressMessages(library(magrittr))
   suppressMessages(library(dplyr))
-  suppressMessages(library(glmmML))
   suppressMessages(library(ggplot2))
-  suppressMessages(library(popbio))
   suppressMessages(library(devtools))
   suppressMessages(library(rmarkdown))
-  suppressMessages(library(xtable))
-  suppressMessages(library(fortunes))
-    print(fortune())
+  # Hello world!
+  cowsay::say(date(), by = "signbunny")
 }
 
 ## message converted Japanes to English for Mac OS X
-  Sys.setenv("LANGUAGE" = "En")
+Sys.setenv("LANGUAGE" = "En")
 ## 
-  Sys.setenv(RSTUDIO_PDFLATEX = "/usr/texbin/lualatex") # windowsなら変更
+Sys.setenv(RSTUDIO_PDFLATEX = "/usr/texbin/lualatex") # windowsなら変更
