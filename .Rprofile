@@ -76,13 +76,13 @@ options(show.signif.stars = F) # Don't show significsant stars
 
 .First <- function() {
   # load packages
-  suppressMessages(library(knitr))
-  suppressMessages(library(stringr))
-  suppressMessages(library(magrittr))
-  suppressMessages(library(dplyr))
-  suppressMessages(library(ggplot2))
-  suppressMessages(library(devtools))
-  suppressMessages(library(rmarkdown))
+  suppressMessages(library("knitr"))
+  suppressMessages(library("stringr"))
+  suppressMessages(library("magrittr"))
+  suppressMessages(library("dplyr"))
+  suppressMessages(library("ggplot2"))
+  suppressMessages(library("devtools"))
+  suppressMessages(library("rmarkdown"))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 # knit の度に進捗を聞かれてつらいのでコメントアウト
