@@ -79,7 +79,6 @@ options(show.signif.stars = F) # Don't show significsant stars
   suppressMessages(library("knitr"))
   suppressMessages(library("stringr"))
   suppressMessages(library("magrittr"))
-  suppressMessages(library("dplyr"))
   suppressMessages(library("ggplot2"))
   suppressMessages(library("devtools"))
   suppressMessages(library("rmarkdown"))
