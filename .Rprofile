@@ -85,8 +85,9 @@ options(show.signif.stars = F) # Don't show significsant stars
   suppressMessages(library(rmarkdown))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
-  yeah::doudesuka(num = 3)
-  Sys.sleep(3)
+# knit の度に進捗を聞かれてつらいのでコメントアウト
+#  yeah::doudesuka(num = 3)
+#  Sys.sleep(2)
 }
 
 ## message converted Japanes to English for Mac OS X
