@@ -7,3 +7,5 @@ export PATH=/usr/local/bin:$PATH
 . /Users/uri/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true # for opam
 # added for Anaconda
 export PATH=/Users/uri/anaconda/bin:$PATH
+# hub: https://github.com/github/hub
+eval "$(hub alias -s)"
