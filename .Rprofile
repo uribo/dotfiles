@@ -71,8 +71,9 @@ setHook(packageEvent("lattice", "attach"),
 
 #########################################
 # options
-options(repos = list(CRAN="http://cran.ism.ac.jp")) # Set CRAN mirror
-options(show.signif.stars = F) # Don't show significsant stars
+options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
+        show.signif.stars = F, # Don't show significsant star
+        scipen = 10) 
 
 .First <- function() {
   # load packages
