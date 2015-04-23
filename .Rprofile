@@ -84,6 +84,10 @@ options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
   suppressMessages(library(ggplot2))
   suppressMessages(library(devtools))
   suppressMessages(library(rmarkdown))
+  suppressMessages(library(ggvis))
+  suppressMessages(library(dplyr))
+  suppressMessages(library(tidyr))
+  suppressMessages(library(readxl))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 # knit の度に進捗を聞かれてつらいのでコメントアウト
