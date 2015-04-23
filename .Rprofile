@@ -78,12 +78,12 @@ options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
 
 .First <- function() {
   # load packages
-  suppressMessages(library("knitr"))
-  suppressMessages(library("stringr"))
-  suppressMessages(library("magrittr"))
-  suppressMessages(library("ggplot2"))
-  suppressMessages(library("devtools"))
-  suppressMessages(library("rmarkdown"))
+  suppressMessages(library(knitr))
+  suppressMessages(library(stringr))
+  suppressMessages(library(magrittr))
+  suppressMessages(library(ggplot2))
+  suppressMessages(library(devtools))
+  suppressMessages(library(rmarkdown))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 # knit の度に進捗を聞かれてつらいのでコメントアウト
