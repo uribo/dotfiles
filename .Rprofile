@@ -1,5 +1,5 @@
 #########################################
-# Last update: 2015-01-22
+# Last update: 2015-04-27
 #########################################
 if (capabilities("aqua")) {
     options(device = "quartz")
@@ -72,7 +72,7 @@ setHook(packageEvent("lattice", "attach"),
 #########################################
 # options
 options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
-        show.signif.stars = F, # Don't show significant star
+        show.signif.stars = FALSE, # Don't show significant star
         scipen = 10,
         error = suppressPackageStartupMessages(DYM::DYM),
         knitr.duplicate.label = "allow")
@@ -91,9 +91,6 @@ options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
   suppressMessages(library(readxl))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
-# knit の度に進捗を聞かれてつらいのでコメントアウト
-#  yeah::doudesuka(num = 3)
-#  Sys.sleep(2)
 }
 
 ## message converted Japanes to English for Mac OS X
