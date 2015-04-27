@@ -10,6 +10,7 @@ alias ls="ls -aG"
 alias rm="rm -i"
 alias wc="wc -l"
 alias WinBUGS="wine /Users/uri/.wine/drive_c/Program\ Files/WinBUGS14/WinBUGS14.exe"
+alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
 
 PATH=$HOME/.cabal/bin:$PATH
 
