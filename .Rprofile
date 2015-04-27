@@ -74,7 +74,8 @@ setHook(packageEvent("lattice", "attach"),
 options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
         show.signif.stars = F, # Don't show significant star
         scipen = 10,
-        error = suppressPackageStartupMessages(DYM::DYM)) 
+        error = suppressPackageStartupMessages(DYM::DYM),
+        knitr.duplicate.label = "allow")
 
 .First <- function() {
   # load packages
