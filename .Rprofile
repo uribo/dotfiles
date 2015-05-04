@@ -71,7 +71,9 @@ setHook(packageEvent("lattice", "attach"),
 
 #########################################
 # options
-options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
+options(repos = c(CRAN = "http://cran.rstudio.com/"),
+        browserNLdisabled = TRUE,
+        deparse.max.lines = 2, 
         show.signif.stars = FALSE, # Don't show significant star
         scipen = 10,
         error = suppressPackageStartupMessages(DYM::DYM),
@@ -97,3 +99,7 @@ options(repos = list(CRAN="http://cran.ism.ac.jp"), # Set CRAN mirror
 Sys.setenv("LANGUAGE" = "En")
 ## 
 Sys.setenv(RSTUDIO_PDFLATEX = "/usr/texbin/lualatex") # windowsなら変更
+
+if (interactive()) {
+  suppressMessages(require(devtools))
+}
