@@ -77,7 +77,12 @@ options(repos = c(CRAN = "http://cran.rstudio.com/"),
         show.signif.stars = FALSE, # Don't show significant star
         scipen = 10,
         error = suppressPackageStartupMessages(DYM::DYM),
-        knitr.duplicate.label = "allow")
+        knitr.duplicate.label = "allow",
+        github.user = "uribo", 
+        shiny.reactlog = TRUE,
+        devtools.name = "Shinya Uryu",
+        devtools.desc.author = "Shinya Uryu <suika1127@gmail.com> [aut, cre]",
+        devtools.desc.license = "MIT")
 
 .First <- function() {
   # load packages
