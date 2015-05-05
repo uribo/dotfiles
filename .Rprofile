@@ -82,7 +82,7 @@ options(repos = c(CRAN = "http://cran.rstudio.com/"),
         shiny.reactlog = TRUE,
         devtools.name = "Shinya Uryu",
         devtools.desc.author = "Shinya Uryu <suika1127@gmail.com> [aut, cre]",
-        devtools.desc.license = "MIT")
+        devtools.desc.license = "MIT + file LICENSE")
 
 .First <- function() {
   # load packages
