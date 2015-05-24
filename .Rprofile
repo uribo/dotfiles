@@ -70,21 +70,23 @@ setHook(packageEvent("lattice", "attach"),
             })
 
 #########################################
-# options
-options(repos = c(CRAN = "http://cran.rstudio.com/"),
-        browserNLdisabled = TRUE,
-        deparse.max.lines = 2, 
-        show.signif.stars = FALSE, # Don't show significant star
-        scipen = 10,
-        error = suppressPackageStartupMessages(DYM::DYM),
-        knitr.duplicate.label = "allow",
-        github.user = "uribo", 
-        shiny.reactlog = TRUE,
-        devtools.name = "Shinya Uryu",
-        devtools.desc.author = "Shinya Uryu <suika1127@gmail.com> [aut, cre]",
-        devtools.desc.license = "MIT + file LICENSE")
+
 
 .First <- function() {
+
+  # options
+  options(repos                 = c(CRAN = "http://cran.rstudio.com/"),
+          browserNLdisabled     = TRUE,
+          deparse.max.lines     = 2, 
+          show.signif.stars     = FALSE, # Don't show significant star
+          scipen                = 10,
+          error                 = suppressPackageStartupMessages(DYM::DYM),
+          knitr.duplicate.label = "allow",
+          github.user           = "uribo", 
+          shiny.reactlog        = TRUE,
+          devtools.name         = "Shinya Uryu",
+          devtools.desc.author  = "Shinya Uryu <suika1127@gmail.com> [aut, cre]",
+          devtools.desc.license = "MIT + file LICENSE")
   # load packages
   suppressMessages(library(knitr))
   suppressMessages(library(stringr))
