@@ -70,7 +70,7 @@ setHook(packageEvent("lattice", "attach"),
             })
 
 #########################################
-options(download.file.method = "curl")
+options(download.file.method = "libcurl")
 local({
    r <- getOption("repos");
    r["CRAN"] <- "https://cran.rstudio.com/"
