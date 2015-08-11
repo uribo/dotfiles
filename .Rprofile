@@ -102,6 +102,8 @@ local({
   suppressMessages(library(dplyr))
   suppressMessages(library(tidyr))
   suppressMessages(library(readxl))
+  suppressMessages(library(Rgitbook)) # devtools::install_github("uribo/Rgitbook")
+  suppressMessages(library(slackr))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 }
