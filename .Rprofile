@@ -89,16 +89,17 @@ local({
           github.user           = "uribo", 
           shiny.reactlog        = TRUE,
           devtools.name         = "Shinya Uryu",
-          devtools.desc.author  = "Shinya Uryu <suika1127@gmail.com> [aut, cre]",
+          devtools.desc.author  = 'c(person("Shinya", "Uryu", email = "suika1127@gmail.com", role = c("aut", "cre")))',
           devtools.desc.license = "MIT + file LICENSE")
   # load packages
+  suppressMessages(library(knitr))
   suppressMessages(library(magrittr))
   suppressMessages(library(pipeR))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 }
 
-## message converted Japanes to English for Mac OS X
+## message converted Japanese to English for Mac OS X
 Sys.setenv("LANGUAGE" = "En")
 ## 
 Sys.setenv(RSTUDIO_PDFLATEX = "/usr/texbin/lualatex") # windowsなら変更
