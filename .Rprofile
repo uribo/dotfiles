@@ -92,18 +92,8 @@ local({
           devtools.desc.author  = "Shinya Uryu <suika1127@gmail.com> [aut, cre]",
           devtools.desc.license = "MIT + file LICENSE")
   # load packages
-  suppressMessages(library(knitr))
-  suppressMessages(library(stringr))
   suppressMessages(library(magrittr))
-  suppressMessages(library(ggplot2))
-  suppressMessages(library(devtools))
-  suppressMessages(library(rmarkdown))
-  suppressMessages(library(ggvis))
-  suppressMessages(library(dplyr))
-  suppressMessages(library(tidyr))
-  suppressMessages(library(readxl))
-  suppressMessages(library(Rgitbook)) # devtools::install_github("uribo/Rgitbook")
-  suppressMessages(library(slackr))
+  suppressMessages(library(pipeR))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 }
