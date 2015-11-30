@@ -95,6 +95,8 @@ local({
   suppressMessages(library(knitr))
   suppressMessages(library(magrittr))
   suppressMessages(library(pipeR))
+  suppressMessages(library(ggplot2))
+  suppressMessages(library(remoji))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 }
