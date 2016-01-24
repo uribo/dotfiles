@@ -92,9 +92,9 @@ local({
   # load packages
   suppressMessages(library(knitr))
   suppressMessages(library(magrittr))
-  suppressMessages(library(pipeR))
   suppressMessages(library(ggplot2))
   suppressMessages(library(remoji))
+  suppressMessages(library(git2r))
   # Hello world!
   cowsay::say(date(), by = "signbunny")
 }
