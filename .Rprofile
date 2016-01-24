@@ -1,5 +1,5 @@
 #########################################
-# Last update: 2015-04-27
+# Last update: 2016-01-24
 #########################################
 if (capabilities("aqua")) {
     options(device = "quartz")
@@ -22,10 +22,6 @@ setHook(packageEvent("grDevices", "onLoad"),
                   "Hiragino Mincho Pro W6",
                   "Hiragino Mincho Pro W3",
                   "Hiragino Mincho Pro W6")))
-        # if (capabilities("X11"))
-        #     grDevices::X11.options(
-        #         fonts=c("-kochi-gothic-%s-%s-*-*-%d-*-*-*-*-*-*-*",
-        #                 "-adobe-symbol-medium-r-*-*-%d-*-*-*-*-*-*-*"))
         grDevices::pdf.options(family = "Japan1GothicBBB")
         grDevices::ps.options(family  = "Japan1GothicBBB")
     }
@@ -70,11 +66,10 @@ setHook(packageEvent("lattice", "attach"),
             })
 
 #########################################
-options(download.file.method = "libcurl")
 local({
    r <- getOption("repos");
    r["CRAN"] <- "https://cran.rstudio.com/"
-   options(repos=r)
+   options(repos = r)
 })
 
 .First <- function() {
@@ -82,6 +77,7 @@ local({
   # options
   options(browserNLdisabled     = TRUE,
           deparse.max.lines     = 2, 
+          download.file.method  = "libcurl",
           show.signif.stars     = FALSE, # Don't show significant star
           scipen                = 10,
           error                 = suppressPackageStartupMessages(DYM::DYM),
@@ -89,7 +85,9 @@ local({
           github.user           = "uribo", 
           shiny.reactlog        = TRUE,
           devtools.name         = "Shinya Uryu",
-          devtools.desc.author  = 'c(person("Shinya", "Uryu", email = "suika1127@gmail.com", role = c("aut", "cre")))',
+          devtools.desc.author  = 'c(person(given = "Shinya", family = "Uryu", 
+                                            email = "suika1127@gmail.com", 
+                                            role  = c("aut", "cre")))',
           devtools.desc.license = "MIT + file LICENSE")
   # load packages
   suppressMessages(library(knitr))
